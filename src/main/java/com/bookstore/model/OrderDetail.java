@@ -7,7 +7,7 @@ public class OrderDetail {
 
     private Integer orddId;
 
-    private Integer ordId;
+    private Order order;
 
     private Integer orddNum;
 

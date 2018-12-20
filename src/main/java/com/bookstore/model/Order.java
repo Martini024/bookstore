@@ -10,7 +10,7 @@ public class Order {
 
     private Integer ordId;
 
-    private Integer custId;
+    private Customer customer;
 
     private Integer ordTotalnum;
 

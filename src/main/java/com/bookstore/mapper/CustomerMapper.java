@@ -7,11 +7,11 @@ import org.apache.ibatis.type.JdbcType;
 
 @Mapper
 public interface CustomerMapper {
-    @Delete({
-        "delete from bs_customer",
-        "where cust_id = #{custId,jdbcType=INTEGER}"
-    })
-    int deleteByPrimaryKey(Integer custId);
+//    @Delete({
+//        "delete from bs_customer",
+//        "where cust_id = #{custId,jdbcType=INTEGER}"
+//    })
+//    int deleteByPrimaryKey(Integer custId);
 
     @Insert({
         "insert into bs_customer (cust_name, ",
