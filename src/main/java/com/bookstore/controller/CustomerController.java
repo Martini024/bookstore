@@ -28,8 +28,16 @@ public class CustomerController {
 //    }
 
     @PostMapping(value = "/login")
-    public Integer login(@Valid  @RequestBody Customer.Account account) {
-        return customerService.login(account);
+    public String login(@Valid  @RequestBody Customer.Account account) {
+        log.info("login");
+        if (customerService.login(account) != -1) {
+            log.info("index");
+            return "redirect:index.html";
+        }
+        else {
+            log.info("login");
+            return "redirect:login.html";
+        }
     }
 
     @PostMapping(value = "/register")
