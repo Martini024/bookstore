@@ -3,7 +3,7 @@ package com.bookstore.model;
 import lombok.Data;
 
 @Data
-public class ShopingList {
+public class Shopinglist {
 
     private Customer customer;
 

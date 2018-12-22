@@ -3,7 +3,7 @@ package com.bookstore.model;
 import lombok.Data;
 
 @Data
-public class OrderDetail {
+public class Orderdetail {
 
     private Integer orddId;
 

@@ -22,6 +22,6 @@ public class Order {
 
     private Address address;
 
-    private List<OrderDetail> orderDetailList;
+    private List<Orderdetail> orderdetailList;
 
 }

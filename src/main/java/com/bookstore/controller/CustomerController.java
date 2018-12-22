@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.logging.Logger;
 
 @Slf4j
 @RestController
@@ -28,15 +27,15 @@ public class CustomerController {
 //    }
 
     @PostMapping(value = "/login")
-    public String login(@Valid  @RequestBody Customer.Account account) {
+    public boolean login(@Valid  @RequestBody Customer.Account account) {
         log.info("login");
         if (customerService.login(account) != -1) {
             log.info("index");
-            return "redirect:index.html";
+            return true;
         }
         else {
             log.info("login");
-            return "redirect:login.html";
+            return false;
         }
     }
 
