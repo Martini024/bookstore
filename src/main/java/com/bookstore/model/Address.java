@@ -7,7 +7,7 @@ public class Address {
 
     private Integer addrId;
 
-    private Customer customer;
+    private Integer custId;
 
     private String addrName;
 

@@ -49,7 +49,7 @@
                enableSelectByExample="false" enableUpdateByExample="false">
             <generatedKey column="book_id" sqlStatement="MySql" identity="true"/>
         </table>
-        <table schema="bookstore" tableName="bs_shopingList" enableCountByExample="false" enableDeleteByExample="false"
+        <table schema="bookstore" tableName="bs_shoppingList" enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false">
         </table>
         <table schema="bookstore" tableName="bs_order" enableCountByExample="false" enableDeleteByExample="false"

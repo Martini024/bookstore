@@ -3,9 +3,9 @@ package com.bookstore.model;
 import lombok.Data;
 
 @Data
-public class Shopinglist {
+public class Shoppinglist {
 
-    private Customer customer;
+    private Integer custId;
 
     private Book book;
 

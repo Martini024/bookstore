@@ -1,9 +1,7 @@
 package com.bookstore.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
@@ -36,15 +34,18 @@ public class Customer {
 
     private List<Order> orderList;
 
-    private List<Book> bookList;
+    private List<Shoppinglist> shoppinglist;
 
-    public Customer(Integer custId, @NotNull String custName, @NotNull String custPassword, @NotNull String custRealname, @NotNull @Email String custEmail, @NotNull Date custCreatedate) {
+    public Customer(Integer custId, @NotNull String custName, @NotNull String custPassword, @NotNull String custRealname, @NotNull @Email String custEmail, @NotNull Date custCreatedate, List<Address> addressList, List<Order> orderList, List<Shoppinglist> shoppinglist) {
         this.custId = custId;
         this.custName = custName;
         this.custPassword = custPassword;
         this.custRealname = custRealname;
         this.custEmail = custEmail;
         this.custCreatedate = custCreatedate;
+        this.addressList = addressList;
+        this.orderList = orderList;
+        this.shoppinglist = shoppinglist;
     }
 
     @Data

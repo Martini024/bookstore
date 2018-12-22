@@ -22,6 +22,4 @@ public class Book {
 
     private Category category;
 
-    private List<Customer> customerList;
-
 }
