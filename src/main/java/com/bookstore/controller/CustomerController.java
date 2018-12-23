@@ -27,15 +27,14 @@ public class CustomerController {
 //    }
 
     @PostMapping(value = "/login")
-    public boolean login(@Valid  @RequestBody Customer.Account account) {
-        log.info("login");
+    public String login(@Valid @RequestBody Customer.Account account) {
         if (customerService.login(account) != -1) {
             log.info("index");
-            return true;
+            return "success";
         }
         else {
             log.info("login");
-            return false;
+            return "error";
         }
     }
 

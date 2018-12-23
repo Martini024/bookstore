@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>bookstore</title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="fonts/ionicons.min.css">
-    <link rel="stylesheet" href="css/Login-Form-Dark.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css" th:href="@{bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="../static/fonts/ionicons.min.css" th:href="@{fonts/ionicons.min.css}">
+    <link rel="stylesheet" href="../static/css/login.css" th:href="@{css/login.css}">
 </head>
 
 <body>
@@ -16,38 +15,46 @@
         <form method="post">
             <h2 class="sr-only">Login Form</h2>
             <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
-            <div class="form-group"><input class="form-control" type="text" id="name" required="" placeholder="Name"></div>
-            <div class="form-group"><input class="form-control" type="password" id="password" required="" placeholder="Password"></div>
-            <div class="form-group" id="login">
-                <button id="loginButoon" class="btn btn-primary btn-block" type="submit">Log In</button>
+            <div class="form-group">
+                <input class="form-control" type="text" id="name" required="" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" id="password" required="" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <button id="login" class="btn btn-primary btn-block" type="submit">Sign in</button>
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script >
                 <script>
-                    $(document).ready(function() {
-                        $("button").click(function() {
+                    $(document).ready(function(){
+                        $("#login").click(function() {
                             var account = {
                                 custName : $("#name").val(),
                                 custPassword : $("#password").val()
                             };
-                            var requestJSON = JSON.stringify(account); $.ajax({
+                            var requestJSON = JSON.stringify(account);
+                            $.ajax({
                                 type : "POST",
-                                url : "http://localhost:8080/customers/login", headers : {
+                                url : "http://localhost:8080/customers/login",
+                                headers : {
                                     "Content-Type" : "application/json"
                                 },
                                 data : requestJSON,
-                                success : function(data) {
-                                    alert(data);
+                                success : function(msg) {
+                                    if (msg == "success")
+                                        window.location.href="http://localhost:8080/index";
+                                    if (msg == "error")
+                                        window.location.href="http://localhost:8080/login";
                                 },
                                 error : function(data) {
+                                    alert("Erro");
                                 }
                             });
                         });
                     });
                 </script>
-            </div>
-            <a href="#" class="forgot">Forgot your email or password?</a></form>
+            </div><a href="#" class="forgot">Create account</a></form>
     </div>
-    <script src="js/jquery.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>
