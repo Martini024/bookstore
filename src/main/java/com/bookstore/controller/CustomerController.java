@@ -19,8 +19,15 @@ public class CustomerController {
     CustomerService customerService;
 
     @PostMapping(value = "/login")
-    public ResponseEntity<Object> login(@Valid @RequestBody Customer.Account account) {
-        return new ResponseEntity<>(customerService.login(account), HttpStatus.OK);
+    public String login(@Valid @RequestBody Customer.Account account) {
+        if (customerService.login(account) != -1) {
+            log.info("index");
+            return "success";
+        }
+        else {
+            log.info("login");
+            return "error";
+        }
     }
 
     @PostMapping(value = "/register")
@@ -35,8 +42,8 @@ public class CustomerController {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Object> getCustomerById(@PathVariable("id") Integer id) {
-        return new ResponseEntity<>(customerService.getCustomerById(id), HttpStatus.OK);
+    public Customer getCustomerById(@PathVariable("id") Integer id) {
+        return customerService.getCustomerById(id);
     }
 
 }

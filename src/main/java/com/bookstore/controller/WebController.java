@@ -16,4 +16,9 @@ public class WebController {
         return "login";
     }
 
+    @RequestMapping(value = "/dashboard")
+    public String dashboard() {
+        return "dashboard";
+    }
+
 }
