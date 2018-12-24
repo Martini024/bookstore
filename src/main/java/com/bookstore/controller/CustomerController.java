@@ -18,35 +18,20 @@ public class CustomerController {
     @Autowired
     CustomerService customerService;
 
-
-//
-//    @PostMapping(value = "")
-//    public ResponseEntity<Object> createCustomer(@RequestBody Customer customer) {
-////        userService.createUser(user);
-////        return new ResponseEntity<>("User is created successfully", HttpStatus.CREATED);
-//    }
-
     @PostMapping(value = "/login")
-    public String login(@Valid @RequestBody Customer.Account account) {
-        if (customerService.login(account) != -1) {
-            log.info("index");
-            return "success";
-        }
-        else {
-            log.info("login");
-            return "error";
-        }
+    public ResponseEntity<Object> login(@Valid @RequestBody Customer.Account account) {
+        return new ResponseEntity<>(customerService.login(account), HttpStatus.OK);
     }
 
     @PostMapping(value = "/register")
-    public Integer register(@Valid @RequestBody Customer customer) {
-        return customerService.register(customer);
+    public ResponseEntity<Object> register(@Valid @RequestBody Customer customer) {
+        return new ResponseEntity<>(customerService.register(customer), HttpStatus.OK);
     }
 
     @PutMapping(value = "/{id}")
-    public boolean updateCustomer(@PathVariable("id") Integer id, @Valid @RequestBody Customer customer) {
+    public ResponseEntity<Object> updateCustomer(@PathVariable("id") Integer id, @Valid @RequestBody Customer customer) {
         customer.setCustId(id);
-        return customerService.updateCustomer(customer);
+        return new ResponseEntity<>(customerService.updateCustomer(customer), HttpStatus.OK);
     }
 
     @GetMapping(value = "/{id}")

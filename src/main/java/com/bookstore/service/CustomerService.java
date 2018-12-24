@@ -10,7 +10,7 @@ public interface CustomerService {
 
     public abstract Integer register(Customer customer);
 
-    public abstract boolean updateCustomer(Customer customer);
+    public abstract Integer updateCustomer(Customer customer);
 
     public abstract Customer getCustomerById(Integer id);
 

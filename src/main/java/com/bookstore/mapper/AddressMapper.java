@@ -6,8 +6,10 @@ import java.util.List;
 import com.bookstore.model.Customer;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
+import org.springframework.stereotype.Repository;
 
 @Mapper
+@Repository
 public interface AddressMapper {
     @Delete({
         "delete from bs_address",

@@ -33,14 +33,13 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public boolean updateCustomer(Customer customer) {
+    public Integer updateCustomer(Customer customer) {
         Integer id = customerMapper.selectByCustName(customer.getCustName());
         if (id != null && customer.getCustId() != id) {
-            return false;
+            return -1;
         }
         else {
-            customerMapper.updateByPrimaryKey(customer);
-            return true;
+            return customerMapper.updateByPrimaryKey(customer);
         }
     }
 
