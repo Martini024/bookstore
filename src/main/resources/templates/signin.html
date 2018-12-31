@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../static/" th:href="@{/}">
+    <link rel="icon" href="img/favicon.ico">
+    <title>Sign in</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}">
+    <link rel="stylesheet" href="fonts/ionicons.min.css" th:href="@{fonts/ionicons.min.css}">
+    <link rel="stylesheet" href="css/customized/signin.css" th:href="@{css/signin.css}">
+</head>
+
+<body class="text-center">
+    <form class="form-signin">
+        <h1 class="h3 mb-3 font-weight-normal">eBookstore</h1>
+        <input type="text" id="name" class="form-control" placeholder="Name" required>
+        <input type="password" id="password" class="form-control" placeholder="Password" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <a class="text-primary" href="#">create account ?</a>
+    </form>
+</body>
+
+</html>
+
