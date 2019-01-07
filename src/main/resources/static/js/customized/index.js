@@ -1,20 +1,15 @@
-$(document).ready(
-    $(function () {
-        $("#table1").DataTable({
-            "paginate": true,  // page button
-            "searching": true,  // search bar
-            "autoWidth":true,  //automatically set the column width
-            "lengthChange": true,  // record number in each row
-            "displayLength": 5,  // row number in each page
-            "lengthMenu":[[5,10,20,-1],[5,10,20,"All"]],
-            "ordering":true ,  // sort
-            "info": true,  // Showing info
-            "scrollY": 300,
-            "scrollCollapse": true,
-            "pagingType": "full",  // page style
-            "processing": true,
-            "serverSide": false,
-            "destroy": true
-        });
-    })
-);
+//<![CDATA[
+jQuery(document).ready(function ($) {
+    $(".multitab-widget-content-widget-id").hide();
+    $("ul.multitab-widget-content-tabs-id li:first a").addClass("multitab-widget-current").show();
+    $(".multitab-widget-content-widget-id:first").show();
+    $("ul.multitab-widget-content-tabs-id li a").click(function () {
+        $("ul.multitab-widget-content-tabs-id li a").removeClass("multitab-widget-current a");
+        $(this).addClass("multitab-widget-current");
+        $(".multitab-widget-content-widget-id").hide();
+        var activeTab = $(this).attr("href");
+        $(activeTab).fadeIn();
+        return false;
+    });
+});
+//]]>
